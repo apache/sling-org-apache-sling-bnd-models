@@ -34,7 +34,7 @@
     <description>This bnd plugin detected all Sling Models classes and adds a bundle header 'Sling-Model-Classes' containing their names.</description>
 
     <scm>
-        <connection>scm:git:https://gitbox.apache.org/repos/asf/sling-org-apache-sling-bnd-models.git</conncetion>
+        <connection>scm:git:https://gitbox.apache.org/repos/asf/sling-org-apache-sling-bnd-models.git</connection>
         <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/sling-org-apache-sling-bnd-models.git</developerConnection>
         <url>https://gitbox.apache.org/repos/asf?p=sling-org-apache-sling-bnd-models.git</url>
     </scm>
