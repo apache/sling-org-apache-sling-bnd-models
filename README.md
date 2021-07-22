@@ -6,4 +6,4 @@
 
 This module is part of the [Apache Sling](https://sling.apache.org) project.
 
-This bnd plugin detected all Sling Models classes and adds a bundle header Sling-Model-Classes containing their names.
+This bnd plugin detects all Sling Models classes and adds a `Sling-Model-Classes` bundle header to the bundle being built, containing the model class names.

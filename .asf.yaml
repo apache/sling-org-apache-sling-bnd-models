@@ -1,0 +1,8 @@
+github:
+  description: "Apache Sling Models bnd Plugin"
+  homepage: "https://sling.apache.org/"
+  labels:
+    - sling
+    - sling-models
+    - bnd
+    - sling-bnd-plugins
