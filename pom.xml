@@ -36,7 +36,7 @@
     <scm>
         <connection>scm:git:https://gitbox.apache.org/repos/asf/sling-org-apache-sling-bnd-models.git</connection>
         <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/sling-org-apache-sling-bnd-models.git</developerConnection>
-        <url>https://gitbox.apache.org/repos/asf?p=sling-org-apache-sling-bnd-models.git</url>
+        <url>https://github.com/apache/sling-org-apache-sling-bnd-models.git</url>
     </scm>
 
     <dependencies>
