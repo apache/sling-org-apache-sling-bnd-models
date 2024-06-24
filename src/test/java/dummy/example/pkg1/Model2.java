@@ -20,7 +20,5 @@ package dummy.example.pkg1;
 
 import org.apache.sling.models.annotations.Model;
 
-@Model(adaptables=Object.class)
-public class Model2 {
-
-}
+@Model(adaptables = Object.class)
+public class Model2 {}
