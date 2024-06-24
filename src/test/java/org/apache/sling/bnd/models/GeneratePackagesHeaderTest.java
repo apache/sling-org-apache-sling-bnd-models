@@ -18,22 +18,21 @@
  */
 package org.apache.sling.bnd.models;
 
-import static org.apache.sling.bnd.models.ModelsScannerPlugin.MODELS_CLASSES_HEADER;
-import static org.apache.sling.bnd.models.ModelsScannerPlugin.MODELS_PACKAGES_HEADER;
-import static org.apache.sling.bnd.models.ModelsScannerPlugin.PROPERTY_GENERATE_PACKAGES_HEADER;
-
 import java.util.HashMap;
 import java.util.Map;
 
+import aQute.bnd.osgi.Jar;
 import org.junit.Test;
 
-import aQute.bnd.osgi.Jar;
+import static org.apache.sling.bnd.models.ModelsScannerPlugin.MODELS_CLASSES_HEADER;
+import static org.apache.sling.bnd.models.ModelsScannerPlugin.MODELS_PACKAGES_HEADER;
+import static org.apache.sling.bnd.models.ModelsScannerPlugin.PROPERTY_GENERATE_PACKAGES_HEADER;
 
 public class GeneratePackagesHeaderTest extends AbstractModelsScannerPluginTest {
 
     @Override
     protected Map<String, String> getProperties() {
-        Map<String,String> props = new HashMap<>();
+        Map<String, String> props = new HashMap<>();
         props.put(PROPERTY_GENERATE_PACKAGES_HEADER, "true");
         return props;
     }
@@ -41,13 +40,9 @@ public class GeneratePackagesHeaderTest extends AbstractModelsScannerPluginTest 
     @Test
     public void testBuild() throws Exception {
         Jar jar = builder.build();
-        
-        assertHeader(jar, MODELS_PACKAGES_HEADER, 
-                "dummy.example.pkg1",
-                "dummy.example.pkg2");        
+
+        assertHeader(jar, MODELS_PACKAGES_HEADER, "dummy.example.pkg1", "dummy.example.pkg2");
 
         assertHeaderMissing(jar, MODELS_CLASSES_HEADER);
-        
     }
-
 }

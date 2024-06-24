@@ -18,11 +18,6 @@
  */
 package org.apache.sling.bnd.models;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.fail;
-import static org.mockito.Mockito.mock;
-
 import java.io.File;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -31,32 +26,36 @@ import java.util.Map;
 import java.util.Set;
 import java.util.jar.Manifest;
 
+import aQute.bnd.osgi.Builder;
+import aQute.bnd.osgi.Jar;
+import aQute.bnd.service.Plugin;
+import aQute.service.reporter.Reporter;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import aQute.bnd.osgi.Builder;
-import aQute.bnd.osgi.Jar;
-import aQute.bnd.service.Plugin;
-import aQute.service.reporter.Reporter;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
+import static org.mockito.Mockito.mock;
 
 @RunWith(MockitoJUnitRunner.class)
 public abstract class AbstractModelsScannerPluginTest {
-    
+
     protected Builder builder;
 
     @Before
     public final void setUp() throws Exception {
         builder = new Builder();
-        
+
         Jar classesDirJar = new Jar("test.jar", new File("target/test-classes"));
         classesDirJar.setManifest(new Manifest());
         builder.setJar(classesDirJar);
-        
-        builder.setSourcepath(new File[] { new File("src/test/java") } );
-        
+
+        builder.setSourcepath(new File[] {new File("src/test/java")});
+
         Plugin plugin = new ModelsScannerPlugin();
         plugin.setReporter(mock(Reporter.class));
         plugin.setProperties(getProperties());
@@ -70,20 +69,20 @@ public abstract class AbstractModelsScannerPluginTest {
         }
         builder.close();
     }
-    
-    protected Map<String,String> getProperties() {
+
+    protected Map<String, String> getProperties() {
         return new HashMap<>();
     }
-    
+
     protected final void assertHeaderMissing(Jar jar, String headerName) throws Exception {
         assertNull(jar.getManifest().getMainAttributes().getValue(headerName));
     }
 
     protected final void assertHeader(Jar jar, String headerName, String... headerValues) throws Exception {
         Set<String> expectedValues = new HashSet<>(Arrays.asList(headerValues));
-        String[] actual = StringUtils.split(jar.getManifest().getMainAttributes().getValue(headerName), ",");
+        String[] actual =
+                StringUtils.split(jar.getManifest().getMainAttributes().getValue(headerName), ",");
         Set<String> actualValues = new HashSet<>(Arrays.asList(actual));
         assertEquals(expectedValues, actualValues);
     }
-
 }

@@ -18,27 +18,27 @@
  */
 package org.apache.sling.bnd.models;
 
-import static org.apache.sling.bnd.models.ModelsScannerPlugin.MODELS_CLASSES_HEADER;
-import static org.apache.sling.bnd.models.ModelsScannerPlugin.*;
-
+import aQute.bnd.osgi.Jar;
 import org.junit.Test;
 
-import aQute.bnd.osgi.Jar;
+import static org.apache.sling.bnd.models.ModelsScannerPlugin.*;
+import static org.apache.sling.bnd.models.ModelsScannerPlugin.MODELS_CLASSES_HEADER;
 
 public class GenerateClassesHeaderTest extends AbstractModelsScannerPluginTest {
 
     @Test
     public void testBuild() throws Exception {
         Jar jar = builder.build();
-        
+
         assertHeaderMissing(jar, MODELS_PACKAGES_HEADER);
-        
-        assertHeader(jar, MODELS_CLASSES_HEADER, 
+
+        assertHeader(
+                jar,
+                MODELS_CLASSES_HEADER,
                 "dummy.example.pkg1.Model1",
                 "dummy.example.pkg1.Model2",
                 "dummy.example.pkg1.sub1.Model3",
                 "dummy.example.pkg2.Model4",
-                "dummy.example.pkg2.Model5");        
+                "dummy.example.pkg2.Model5");
     }
-
 }
