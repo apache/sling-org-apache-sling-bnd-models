@@ -31,7 +31,7 @@
     <version>1.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Apache Sling Models bnd Plugin</name>
-    <description>This bnd plugin detected all Sling Models classes and adds a bundle header 'Sling-Model-Classes' containing their names.</description>
+    <description>This bnd plugin detects all Sling Models classes and adds a bundle header 'Sling-Model-Classes' containing their names.</description>
 
     <scm>
         <connection>scm:git:https://gitbox.apache.org/repos/asf/sling-org-apache-sling-bnd-models.git</connection>
